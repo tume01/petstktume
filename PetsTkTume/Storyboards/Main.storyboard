@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4rT-Yk-lUk">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4rT-Yk-lUk">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,24 +31,20 @@
             <objects>
                 <tableViewController id="tzZ-Vt-Pb9" customClass="PetTableViewController" customModule="PetsTkTume" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="c1R-yi-Wq5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PetTableViewCell" id="LnO-RD-mFE" customClass="PetTableViewCell" customModule="PetsTkTume" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LnO-RD-mFE" id="NBd-2o-7Tw">
-                                    <frame key="frameInset" width="375" height="90"/>
+                                    <frame key="frameInset" width="320" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k4d-9z-5AN">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="159" id="ppy-E0-Wf6"/>
-                                            </constraints>
-                                        </imageView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mtH-P1-cV7">
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k4d-9z-5AN"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mtH-P1-cV7" customClass="FavoriteControl" customModule="PetsTkTume" customModuleProvider="target">
+                                            <color key="backgroundColor" red="1" green="0.1082526454" blue="0.096139144689999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="mtH-P1-cV7" secondAttribute="height" multiplier="1:1" id="rt3-E5-CKV"/>
                                             </constraints>
@@ -59,19 +56,20 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="mtH-P1-cV7" firstAttribute="leading" secondItem="4dZ-OG-7F1" secondAttribute="trailing" constant="20" id="0C6-XD-afX"/>
                                         <constraint firstItem="mtH-P1-cV7" firstAttribute="centerY" secondItem="NBd-2o-7Tw" secondAttribute="centerY" id="2EO-AH-m0V"/>
                                         <constraint firstItem="k4d-9z-5AN" firstAttribute="leading" secondItem="NBd-2o-7Tw" secondAttribute="leading" id="49l-as-QI9"/>
-                                        <constraint firstItem="mtH-P1-cV7" firstAttribute="leading" secondItem="4dZ-OG-7F1" secondAttribute="trailing" constant="8" id="5gG-rm-gGn"/>
-                                        <constraint firstItem="4dZ-OG-7F1" firstAttribute="leading" secondItem="k4d-9z-5AN" secondAttribute="trailing" constant="8" symbolic="YES" id="8kR-Hb-HCG"/>
                                         <constraint firstItem="k4d-9z-5AN" firstAttribute="height" secondItem="NBd-2o-7Tw" secondAttribute="height" constant="-5" id="IaC-4H-Kfm"/>
                                         <constraint firstItem="mtH-P1-cV7" firstAttribute="top" secondItem="NBd-2o-7Tw" secondAttribute="topMargin" constant="16" id="PE1-mb-NQG"/>
                                         <constraint firstItem="4dZ-OG-7F1" firstAttribute="centerY" secondItem="NBd-2o-7Tw" secondAttribute="centerY" id="S3v-xC-hR2"/>
+                                        <constraint firstItem="k4d-9z-5AN" firstAttribute="width" secondItem="NBd-2o-7Tw" secondAttribute="width" multiplier="0.4" id="b0O-wh-6Qz"/>
+                                        <constraint firstItem="4dZ-OG-7F1" firstAttribute="leading" secondItem="k4d-9z-5AN" secondAttribute="trailing" constant="10" id="j3n-EZ-nWe"/>
                                         <constraint firstItem="mtH-P1-cV7" firstAttribute="trailing" secondItem="NBd-2o-7Tw" secondAttribute="trailingMargin" constant="5" id="qh5-FY-Cla"/>
                                         <constraint firstItem="k4d-9z-5AN" firstAttribute="centerY" secondItem="NBd-2o-7Tw" secondAttribute="centerY" id="w5Q-SW-OHN"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="favoriteButton" destination="mtH-P1-cV7" id="VoH-r6-ote"/>
+                                    <outlet property="favoriteControl" destination="mtH-P1-cV7" id="VHQ-6x-qsH"/>
                                     <outlet property="petImage" destination="k4d-9z-5AN" id="ytM-JL-Q5C"/>
                                     <outlet property="petName" destination="4dZ-OG-7F1" id="xP5-Cz-Dhr"/>
                                 </connections>
@@ -103,7 +101,7 @@
                         <viewControllerLayoutGuide type="bottom" id="uwA-SS-bcG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oef-9t-TCK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

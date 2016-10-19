@@ -42,7 +42,10 @@ class PetTableViewController: UITableViewController {
         let cellIdentifier = "PetTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PetTableViewCell
         
-        cell.petName.text = "SSS"
+        cell.petName.text = "ss"
+        cell.favoriteControl.isFavorite = true
+        
+        
         return cell
     }
  

@@ -10,6 +10,12 @@ import UIKit
 
 class FavoriteControl: UIView {
 
+    var isFavorite: Bool = false {
+        didSet {
+            print("didset")
+            setNeedsLayout()
+        }
+    }
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -24,11 +30,6 @@ class FavoriteControl: UIView {
         super.init(coder: aDecoder)
         
         let button = UIButton()
-        
-        button.backgroundColor = UIColor.red
-        
-        button.addTarget(self, action: #selector(FavoriteControl.favoriteButtonTapped(_:)), for: .touchDown)
-        
         addSubview(button)
     }
     
