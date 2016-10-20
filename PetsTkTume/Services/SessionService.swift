@@ -28,9 +28,7 @@ class SessionService {
            
         }
         
-        task.resume()
-        
-        
+        task.resume() 
     }
     
     class func sharedInstance() -> SessionService {
@@ -54,7 +52,7 @@ extension User {
                 
         }
         
-        self.init(userID: userID, lastName: lastName, firstName: firstName, email: email)
+        self.init(userID: userID, lastName: lastName, firstName: firstName, email: email, token: "")
         
         
     }

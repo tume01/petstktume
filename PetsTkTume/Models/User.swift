@@ -15,12 +15,14 @@ class User {
     var lastName: String
     var firstName: String
     var email: String
+    let token: String
         
-    init(userID: Int, lastName: String, firstName: String, email: String) {
+    init(userID: Int, lastName: String, firstName: String, email: String, token: String) {
         self.userID = userID
         self.lastName = lastName
         self.firstName = firstName
         self.email = email
+        self.token = token
     }
     
 }

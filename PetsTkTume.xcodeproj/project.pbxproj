@@ -21,6 +21,8 @@
 		755A22661DB534A1002B0471 /* PetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A22651DB534A1002B0471 /* PetTableViewController.swift */; };
 		755A22681DB537D4002B0471 /* FavoriteControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A22671DB537D4002B0471 /* FavoriteControl.swift */; };
 		755A226A1DB54644002B0471 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A22691DB54644002B0471 /* Pet.swift */; };
+		759B49DE1DB92E5F0099875C /* PetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B49DD1DB92E5F0099875C /* PetService.swift */; };
+		759B49E21DB95AB80099875C /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B49E11DB95AB80099875C /* PetViewController.swift */; };
 		759B984A1DAD345900061B9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B98491DAD345900061B9B /* AppDelegate.swift */; };
 		759B984F1DAD345900061B9B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759B984D1DAD345900061B9B /* Login.storyboard */; };
 		759B98511DAD345900061B9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 759B98501DAD345900061B9B /* Assets.xcassets */; };
@@ -45,6 +47,8 @@
 		755A22651DB534A1002B0471 /* PetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetTableViewController.swift; sourceTree = "<group>"; };
 		755A22671DB537D4002B0471 /* FavoriteControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteControl.swift; sourceTree = "<group>"; };
 		755A22691DB54644002B0471 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		759B49DD1DB92E5F0099875C /* PetService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetService.swift; sourceTree = "<group>"; };
+		759B49E11DB95AB80099875C /* PetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
 		759B98461DAD345900061B9B /* PetsTkTume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetsTkTume.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759B98491DAD345900061B9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		759B984E1DAD345900061B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				753DB1071DB1673000B62303 /* SessionService.swift */,
+				759B49DD1DB92E5F0099875C /* PetService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 				75D8D6F71DAE99FA0039C98E /* SignUpViewController.swift */,
 				755A22631DB53488002B0471 /* PetTableViewCell.swift */,
 				755A22651DB534A1002B0471 /* PetTableViewController.swift */,
+				759B49E11DB95AB80099875C /* PetViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -253,6 +259,7 @@
 				755A22621DB52012002B0471 /* User.swift in Sources */,
 				755A22681DB537D4002B0471 /* FavoriteControl.swift in Sources */,
 				75D8D6F61DAE99E70039C98E /* LoginViewController.swift in Sources */,
+				759B49DE1DB92E5F0099875C /* PetService.swift in Sources */,
 				759B984A1DAD345900061B9B /* AppDelegate.swift in Sources */,
 				753DB10D1DB17DD800B62303 /* SessionManager.swift in Sources */,
 				754DABEC1DB025B2006B0C1C /* JSONParser.swift in Sources */,
@@ -262,6 +269,7 @@
 				755A22661DB534A1002B0471 /* PetTableViewController.swift in Sources */,
 				75D8D6F81DAE99FA0039C98E /* SignUpViewController.swift in Sources */,
 				753DB1081DB1673000B62303 /* SessionService.swift in Sources */,
+				759B49E21DB95AB80099875C /* PetViewController.swift in Sources */,
 				754DABF21DB036B1006B0C1C /* NetworkManager.swift in Sources */,
 				759B98651DAD3A9500061B9B /* LandingPageViewController.swift in Sources */,
 				754DABEB1DB025B2006B0C1C /* ErrorCode.swift in Sources */,

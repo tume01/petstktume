@@ -9,10 +9,37 @@
 import UIKit
 
 class PetTableViewController: UITableViewController {
+    
+    @IBOutlet weak var petsLoader: UIActivityIndicatorView!
+    var pets: [Pet] = []
+    var cachedImages: [String: UIImage] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        petsLoader.startAnimating()
+        
+        PetService.sharedInstance().getPets(userId: (SessionManager.sharedInstance().user?.userID)!) {
+            networkResult in
+            DispatchQueue.main.async {
+                self.petsLoader.stopAnimating()
+                
+                switch networkResult {
+                case .success(let result):
+                    self.pets = result as! [Pet]
+                    self.tableView.reloadData()
+                    
+                case .error( _):
+                    let alertController = UIAlertController(title: "Service Error", message: "Service Error", preferredStyle: .alert)
+                    
+                    let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                        print("you have pressed OK button");
+                    }
+                    alertController.addAction(OKAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -34,7 +61,7 @@ class PetTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return pets.count
     }
 
    
@@ -42,13 +69,43 @@ class PetTableViewController: UITableViewController {
         let cellIdentifier = "PetTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PetTableViewCell
         
-        cell.petName.text = "ss"
-        cell.favoriteControl.isFavorite = true
+        let pet = pets[indexPath.row]
         
+        if cachedImages[pet.imageURL] != nil {
+            cell.petImage.image = cachedImages[pet.imageURL]
+        }
+        else {
+            downloadImage(url: URL(string: pet.imageURL)!) {
+                image in
+                if(image != nil) {
+                    cell.petImage.image = image
+                }
+            }
+        }
+        cell.petName.text = pet.name + ", " + pet.family
+        cell.favoriteControl.heartButton?.isSelected = pet.isFavorite
         
         return cell
     }
- 
+    
+    func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+        URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            completion(data, response, error)
+            }.resume()
+    }
+    
+    func downloadImage(url: URL, completitionHandler: @escaping (_ image: UIImage?) -> Void) {
+        print("Download Started")
+        getDataFromUrl(url: url) { (data, response, error)  in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() { () -> Void in
+                completitionHandler(UIImage(data: data))
+            }
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

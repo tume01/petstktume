@@ -22,7 +22,6 @@ class NetworkManager {
                 if let jsonError = JSONParser.errorFromJSON(jsonObject) {
                     completionHandler(NetworkResult.error(error: jsonError))
                 } else {
-                    let jsonObject = jsonObject as! [String: Any]
                     completionHandler(NetworkResult.success(result: jsonObject))
                 }
             }
