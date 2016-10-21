@@ -10,8 +10,8 @@ import UIKit
 
 
 enum Cell {
-    case profile
-    case favoritePet
+    case profile(cell: ProfileCollectionViewCell)
+    case favoritePet(cell: FavoritePetCollectionViewCell)
 }
 
 struct Section {
@@ -36,8 +36,15 @@ class ProfileCollectionViewController: UICollectionViewController {
         self.collectionView!.register(FavoritePetCollectionViewCell.self, forCellWithReuseIdentifier: profileCellIdentifier)
         self.collectionView!.register(ProfileCollectionViewCell.self , forCellWithReuseIdentifier: favoritePetCellIdentifier)
      
-        sections.append(Section(cells: [], cellIdentifier: profileCellIdentifier))
-        sections.append(Section(cells: [], cellIdentifier: favoritePetCellIdentifier))
+        let profileCell = ProfileCollectionViewCell()
+        
+        profileCell.backgroundColor = UIColor.red
+        
+        let favoriteCell = FavoritePetCollectionViewCell()
+        favoriteCell.backgroundColor = UIColor.black
+        
+        sections.append(Section(cells: [Cell.profile(cell: profileCell )], cellIdentifier: profileCellIdentifier))
+        sections.append(Section(cells: [Cell.favoritePet(cell: favoriteCell)], cellIdentifier: favoritePetCellIdentifier))
         
         
         // Do any additional setup after loading the view.
@@ -52,7 +59,7 @@ class ProfileCollectionViewController: UICollectionViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for 8segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
@@ -75,6 +82,7 @@ class ProfileCollectionViewController: UICollectionViewController {
         
         
         let section = sections[indexPath.section]
+        print(indexPath.section)
         let cell: UICollectionViewCell
         
         switch section.cells[indexPath.row] {
