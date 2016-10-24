@@ -9,5 +9,8 @@
 import UIKit
 
 class ProfileCollectionViewCell: UICollectionViewCell {
-    static let identifier = "ProfileCollectionViewCell"
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var nameText: UILabel!
+    @IBOutlet weak var emailText: UILabel!
+    
 }

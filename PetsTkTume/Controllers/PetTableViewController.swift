@@ -75,10 +75,18 @@ class PetTableViewController: UITableViewController {
             cell.petImage.image = cachedImages[pet.imageURL]
         }
         else {
-            downloadImage(url: URL(string: pet.imageURL)!) {
-                image in
-                if(image != nil) {
-                    cell.petImage.image = image
+            NetworkManager.sharedInstance().getDataFromUrl(url: URL(string: pet.imageURL)!) {
+                networkResult in
+                
+                switch networkResult {
+                case .error:
+                    print("error")
+                case .success(let result):
+                    let imageData = result as? Data
+                    
+                    if let image = UIImage(data: imageData!) {
+                        cell.petImage.image = image
+                    }
                 }
             }
         }
@@ -88,24 +96,6 @@ class PetTableViewController: UITableViewController {
         return cell
     }
     
-    func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
-        URLSession.shared.dataTask(with: url) {
-            (data, response, error) in
-            completion(data, response, error)
-            }.resume()
-    }
-    
-    func downloadImage(url: URL, completitionHandler: @escaping (_ image: UIImage?) -> Void) {
-        print("Download Started")
-        getDataFromUrl(url: url) { (data, response, error)  in
-            guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
-            print("Download Finished")
-            DispatchQueue.main.async() { () -> Void in
-                completitionHandler(UIImage(data: data))
-            }
-        }
-    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -28,7 +28,32 @@ class PetService {
                 completionHandler(NetworkResult.success(result: pets))
             case .error(let error):
                 print(error)
-                 completionHandler(networkResult)
+                completionHandler(networkResult)
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func getFavoritePets(userId: Int, completionHandler: @escaping(_ result: NetworkResult<Any>) -> Void) {
+        var pets: [Pet] = []
+        
+        let request = RequestBuilder().makeRequest(with: [:], path: "users/" + userId.description + "/favorite_pets.json", token: "", method: HTTPMethods.get)
+        
+        let task = NetworkManager.sharedInstance().dataTask(with: request) {
+            networkResult in
+            
+            switch networkResult {
+            case .success(let result):
+                for(value) in (result as! [[String: Any]]) {
+                    if let pet = Pet(json: value) {
+                        pets.append(pet)
+                    }
+                }
+                completionHandler(NetworkResult.success(result: pets))
+            case .error(let error):
+                print(error)
+                completionHandler(networkResult)
             }
         }
         
@@ -49,12 +74,13 @@ extension Pet {
         guard let petId = json["id"] as? Int,
             let name = json["name"] as? String,
             let family = json["family"] as? String,
-            let imageURL = json["image_url"] as? String,
             let profileURL = json["url"] as? String,
             let isFavorite = json["is_favorite"] as? Bool else {
+                print(json["image_url"])
                 return nil
         }
+        let imageURL = json["image_url"] as? String
         
-        self.init(petId: petId, name: name, family: family, imageURL: imageURL, profileURL: profileURL, isFavorite: isFavorite)
+        self.init(petId: petId, name: name, family: family, imageURL: imageURL!, profileURL: profileURL, isFavorite: isFavorite)
     }
 }

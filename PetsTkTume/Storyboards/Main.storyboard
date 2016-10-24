@@ -35,7 +35,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zFb-Ud-3rn">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GF9-jX-Ym3">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -43,20 +43,73 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCollectionViewCell" id="MU3-I6-U4M" customClass="ProfileCollectionViewCell" customModule="PetsTkTume" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="179"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="179"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNu-fn-Osm">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uey-Bc-3uY">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="90" id="F7w-PK-Hcv"/>
+                                                <constraint firstAttribute="height" constant="65" id="QRX-D0-vIx"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruq-rx-vB6">
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="gNu-fn-Osm" firstAttribute="top" secondItem="MU3-I6-U4M" secondAttribute="topMargin" constant="97" id="19c-1R-s1L"/>
+                                    <constraint firstItem="Uey-Bc-3uY" firstAttribute="centerX" secondItem="MU3-I6-U4M" secondAttribute="centerX" id="3QN-3K-7qU"/>
+                                    <constraint firstItem="Uey-Bc-3uY" firstAttribute="top" secondItem="MU3-I6-U4M" secondAttribute="topMargin" constant="16" id="9rm-4K-Zbx"/>
+                                    <constraint firstItem="gNu-fn-Osm" firstAttribute="centerX" secondItem="MU3-I6-U4M" secondAttribute="centerX" id="oIe-4x-riB"/>
+                                    <constraint firstItem="Ruq-rx-vB6" firstAttribute="centerX" secondItem="MU3-I6-U4M" secondAttribute="centerX" id="p2i-f7-owk"/>
+                                    <constraint firstItem="Ruq-rx-vB6" firstAttribute="top" secondItem="gNu-fn-Osm" secondAttribute="bottom" constant="17" id="ws4-SU-lcg"/>
+                                </constraints>
+                                <size key="customSize" width="320" height="179"/>
+                                <connections>
+                                    <outlet property="emailText" destination="Ruq-rx-vB6" id="e7V-MC-C2n"/>
+                                    <outlet property="nameText" destination="gNu-fn-Osm" id="jEd-dR-Lrj"/>
+                                    <outlet property="profileImage" destination="Uey-Bc-3uY" id="qMq-wx-ddX"/>
+                                </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavoritePetCollectionViewCell" id="MkC-of-enJ" customClass="FavoritePetCollectionViewCell" customModule="PetsTkTume" customModuleProvider="target">
-                                <rect key="frame" x="67.5" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="96" y="189" width="129" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="129" height="101"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RYI-iL-RjY"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5V-UY-LXj">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="RYI-iL-RjY" secondAttribute="bottom" id="7rL-X7-vCp"/>
+                                    <constraint firstItem="RYI-iL-RjY" firstAttribute="leading" secondItem="MkC-of-enJ" secondAttribute="leadingMargin" id="FYb-lp-k3Y"/>
+                                    <constraint firstItem="K5V-UY-LXj" firstAttribute="centerX" secondItem="MkC-of-enJ" secondAttribute="centerX" id="O2N-1d-GY6"/>
+                                    <constraint firstItem="RYI-iL-RjY" firstAttribute="centerX" secondItem="MkC-of-enJ" secondAttribute="centerX" id="ThO-Mm-45a"/>
+                                    <constraint firstItem="K5V-UY-LXj" firstAttribute="bottom" secondItem="MkC-of-enJ" secondAttribute="bottomMargin" id="ZBm-og-LeG"/>
+                                    <constraint firstItem="RYI-iL-RjY" firstAttribute="centerY" secondItem="MkC-of-enJ" secondAttribute="centerY" id="fd7-AW-lzv"/>
+                                </constraints>
+                                <size key="customSize" width="129" height="101"/>
+                                <connections>
+                                    <outlet property="petImage" destination="RYI-iL-RjY" id="9ki-G8-4t7"/>
+                                    <outlet property="petName" destination="K5V-UY-LXj" id="n0K-oQ-dc0"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -65,10 +118,13 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Profile" id="ilY-hP-YGx"/>
+                    <connections>
+                        <outlet property="flowLayout" destination="GF9-jX-Ym3" id="wci-6U-Zzd"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgs-aG-2lv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2659" y="2454"/>
+            <point key="canvasLocation" x="2658.75" y="2453.8732394366198"/>
         </scene>
         <!--Pets-->
         <scene sceneID="q9a-Pl-7MB">
@@ -87,7 +143,7 @@
                                 <rect key="frame" x="0.0" y="92" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LnO-RD-mFE" id="NBd-2o-7Tw">
-                                    <frame key="frameInset" width="320" height="99.5"/>
+                                    <frame key="frameInset" width="320" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dZ-OG-7F1">

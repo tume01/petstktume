@@ -30,6 +30,22 @@ class NetworkManager {
         return dataTaskResult
     }
     
+    func getDataFromUrl(url: URL, completionHandler: @escaping (_ result: NetworkResult<Any>) -> Void) {
+        
+        self.session.dataTask(with: url, completionHandler: {
+            optionalData, response, networkError in
+            
+            if let error = networkError {
+                completionHandler(NetworkResult.error(error: error))
+            }else if let data = optionalData {
+                DispatchQueue.main.async() { () -> Void in
+                    completionHandler(NetworkResult.success(result: data))
+                }
+                
+            }
+        }).resume()
+    }
+    
     class func sharedInstance() -> NetworkManager {
         struct Singleton {
             static var sharedInstance = NetworkManager()

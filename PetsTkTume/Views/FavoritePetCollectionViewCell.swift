@@ -9,5 +9,7 @@
 import UIKit
 
 class FavoritePetCollectionViewCell: UICollectionViewCell {
-    static let identifier = "FavoriteCollectionViewCell"
+    @IBOutlet weak var petImage: UIImageView!
+
+    @IBOutlet weak var petName: UILabel!
 }

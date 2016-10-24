@@ -10,8 +10,8 @@ import UIKit
 
 
 enum Cell {
-    case profile(cell: ProfileCollectionViewCell)
-    case favoritePet(cell: FavoritePetCollectionViewCell)
+    case profile(cell: User)
+    case favoritePet(cell: Pet)
 }
 
 struct Section {
@@ -23,33 +23,48 @@ class ProfileCollectionViewController: UICollectionViewController {
     
     var sections: [Section] = []
     
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
     let profileCellIdentifier = "ProfileCollectionViewCell"
     let favoritePetCellIdentifier = "FavoritePetCollectionViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(FavoritePetCollectionViewCell.self, forCellWithReuseIdentifier: profileCellIdentifier)
-        self.collectionView!.register(ProfileCollectionViewCell.self , forCellWithReuseIdentifier: favoritePetCellIdentifier)
-     
-        let profileCell = ProfileCollectionViewCell()
-        
-        profileCell.backgroundColor = UIColor.red
-        
-        let favoriteCell = FavoritePetCollectionViewCell()
-        favoriteCell.backgroundColor = UIColor.black
-        
-        sections.append(Section(cells: [Cell.profile(cell: profileCell )], cellIdentifier: profileCellIdentifier))
-        sections.append(Section(cells: [Cell.favoritePet(cell: favoriteCell)], cellIdentifier: favoritePetCellIdentifier))
-        
-        
-        // Do any additional setup after loading the view.
+        loadProfileCell()
+        loadFavoritePets()
     }
-
+    
+    func loadFavoritePets() {
+        let user = SessionManager.sharedInstance().user!
+        
+        PetService.sharedInstance().getFavoritePets(userId: user.userID) {
+            serviceResult in
+            DispatchQueue.main.async {
+                switch serviceResult {
+                case .success(let pets):
+                    let favoritePets = pets as? [Pet]
+                    var cells:[Cell] = []
+                    
+                    favoritePets?.forEach {
+                        pet in
+                        
+                        cells.append(Cell.favoritePet(cell: pet))
+                    }
+                    
+                    self.sections.append(Section(cells: cells, cellIdentifier: self.favoritePetCellIdentifier))
+                    self.collectionView?.reloadData()
+                case .error:
+                    print("error petfavorite")
+                }
+            }
+        }
+    }
+    
+    func loadProfileCell() {
+        let user = SessionManager.sharedInstance().user!
+        sections.append(Section(cells: [Cell.profile(cell: user)], cellIdentifier: profileCellIdentifier))
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -83,21 +98,46 @@ class ProfileCollectionViewController: UICollectionViewController {
         
         let section = sections[indexPath.section]
         print(indexPath.section)
-        let cell: UICollectionViewCell
+        
         
         switch section.cells[indexPath.row] {
-        case .profile:
+        case .profile(let sectionCell):
+            var cell: ProfileCollectionViewCell
+            
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: profileCellIdentifier, for: indexPath) as! ProfileCollectionViewCell
             
-            cell.backgroundColor = UIColor.red
-        case .favoritePet:
+            cell.nameText.text = sectionCell.firstName
+            cell.emailText.text = sectionCell.email
+           
+            return cell
+            
+        case .favoritePet(let sectionCell):
+            var cell: FavoritePetCollectionViewCell
+            
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: favoritePetCellIdentifier, for: indexPath) as! FavoritePetCollectionViewCell
-            cell.backgroundColor = UIColor.blue
+            
+            let pet = sectionCell
+            
+            NetworkManager.sharedInstance().getDataFromUrl(url: URL(string: pet.imageURL)!) {
+                networkResult in
+                
+                switch networkResult {
+                case .error:
+                    print("error")
+                case .success(let result):
+                    let imageData = result as? Data
+                    
+                    if let image = UIImage(data: imageData!) {
+                        cell.petImage.image = image
+                    }
+                }
+            }
+            
+            cell.petName.text = pet.name
+            
+            return cell
         }
     
-        // Configure the cell
-    
-        return cell
     }
 
     // MARK: UICollectionViewDelegate
@@ -131,4 +171,18 @@ class ProfileCollectionViewController: UICollectionViewController {
     }
     */
 
+}
+
+extension ProfileCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let section = sections[indexPath.section]
+        
+        switch section.cells[indexPath.row] {
+        case .profile:
+            return CGSize(width: collectionView.frame.size.width, height: 300)
+        case .favoritePet:
+            return CGSize(width: 100, height: 100)
+        }
+    }
 }
