@@ -22,6 +22,10 @@ struct Section {
 class ProfileCollectionViewController: UICollectionViewController {
     
     var sections: [Section] = []
+    lazy var overlayView: OverlayView = {
+        let overlayView = OverlayView.loadViewFromXibFile()
+        return overlayView
+    }()
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
@@ -129,17 +133,43 @@ class ProfileCollectionViewController: UICollectionViewController {
                     
                     if let image = UIImage(data: imageData!) {
                         cell.petImage.image = image
+                        cell.petImage.layer.cornerRadius = 8
+                        cell.petImage.clipsToBounds = true
                     }
                 }
             }
             
             cell.petName.text = pet.name
+            cell.petFamilyName.text = pet.family
+            
+            let tapFavorite = UITapGestureRecognizer(target: self, action: #selector(self.removeFavorite(sender:)))
+            
+            cell.addGestureRecognizer(tapFavorite)
             
             return cell
         }
     
     }
-
+    
+    func removeFavorite(sender: UITapGestureRecognizer){
+        let cell = sender.view as! FavoritePetCollectionViewCell
+        
+        overlayView.frame = cell.petImage.bounds
+        
+        overlayView.alpha = 0
+        
+        cell.contentView.addSubview(overlayView)
+        
+        overlayView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        UIView.animate(withDuration: 0.5, animations: { () -> Void in
+            self.overlayView.alpha = 1.0
+            self.overlayView.transform = CGAffineTransform.identity
+        }) { (finished) -> Void in
+            
+        }
+    }
+    
+    
     // MARK: UICollectionViewDelegate
 
     /*
@@ -180,9 +210,9 @@ extension ProfileCollectionViewController: UICollectionViewDelegateFlowLayout {
         
         switch section.cells[indexPath.row] {
         case .profile:
-            return CGSize(width: collectionView.frame.size.width, height: 300)
+            return CGSize(width: collectionView.frame.size.width, height: 250)
         case .favoritePet:
-            return CGSize(width: 100, height: 100)
+            return CGSize(width: (collectionView.frame.size.width / 2) - 10, height: 300)
         }
     }
 }

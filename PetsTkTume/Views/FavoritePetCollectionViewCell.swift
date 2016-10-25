@@ -10,6 +10,7 @@ import UIKit
 
 class FavoritePetCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var petImage: UIImageView!
-
+    @IBOutlet weak var petFamilyName: UILabel!
     @IBOutlet weak var petName: UILabel!
+    
 }

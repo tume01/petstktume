@@ -91,7 +91,7 @@ class PetTableViewController: UITableViewController {
             }
         }
         cell.petName.text = pet.name + ", " + pet.family
-        cell.favoriteControl.heartButton?.isSelected = pet.isFavorite
+        cell.favoriteControl.heartButton?.isSelected = pet.isFavorite!
         
         return cell
     }

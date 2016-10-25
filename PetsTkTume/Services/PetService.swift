@@ -74,13 +74,15 @@ extension Pet {
         guard let petId = json["id"] as? Int,
             let name = json["name"] as? String,
             let family = json["family"] as? String,
-            let profileURL = json["url"] as? String,
-            let isFavorite = json["is_favorite"] as? Bool else {
+            let profileURL = json["url"] as? String else {
                 print(json["image_url"])
                 return nil
         }
+        
+        let isFavorite = json["is_favorite"] as? Bool
+        
         let imageURL = json["image_url"] as? String
         
-        self.init(petId: petId, name: name, family: family, imageURL: imageURL!, profileURL: profileURL, isFavorite: isFavorite)
+        self.init(petId: petId, name: name, family: family, imageURL: imageURL!, profileURL: profileURL, isFavorite: isFavorite ?? false)
     }
 }

@@ -15,7 +15,7 @@ class Pet {
     var family: String
     var imageURL: String
     var profileURL: String
-    var isFavorite: Bool
+    var isFavorite: Bool?
     
     init(petId: Int, name: String, family: String, imageURL: String, profileURL: String, isFavorite: Bool) {
         self.petId = petId
