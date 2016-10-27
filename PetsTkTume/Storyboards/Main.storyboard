@@ -32,7 +32,7 @@
             <objects>
                 <collectionViewController id="OC9-Ho-Yhv" customClass="ProfileCollectionViewController" customModule="PetsTkTume" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="QX2-It-L3Q">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GF9-jX-Ym3">
@@ -43,7 +43,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCollectionViewCell" id="MU3-I6-U4M" customClass="ProfileCollectionViewCell" customModule="PetsTkTume" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="179"/>
+                                <rect key="frame" x="28" y="0.0" width="320" height="179"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="179"/>
@@ -83,7 +83,7 @@
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavoritePetCollectionViewCell" id="MkC-of-enJ" customClass="FavoritePetCollectionViewCell" customModule="PetsTkTume" customModuleProvider="target">
-                                <rect key="frame" x="74" y="189" width="173" height="158"/>
+                                <rect key="frame" x="101" y="189" width="173" height="158"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="173" height="158"/>
@@ -166,7 +166,7 @@
                         <viewControllerLayoutGuide type="bottom" id="thF-Mi-F14"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8lj-x4-Did">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKm-a3-Md4">
@@ -204,7 +204,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fYD-Dp-M8V">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fYD-Dp-M8V">
                                 <frame key="frameInset" minX="103" minY="107" width="172" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.30265911839999998" green="0.47030084620000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -232,19 +232,19 @@
             <objects>
                 <tableViewController id="tzZ-Vt-Pb9" customClass="PetTableViewController" customModule="PetsTkTume" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="c1R-yi-Wq5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="tf6-kz-oMV">
-                            <rect key="frame" x="0.0" y="192" width="320" height="20"/>
+                            <rect key="frame" x="0.0" y="192" width="375" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </activityIndicatorView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PetTableViewCell" id="LnO-RD-mFE" customClass="PetTableViewCell" customModule="PetsTkTume" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LnO-RD-mFE" id="NBd-2o-7Tw">
-                                    <frame key="frameInset" width="320" height="99"/>
+                                    <frame key="frameInset" width="375" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dZ-OG-7F1">
@@ -310,9 +310,63 @@
                         <viewControllerLayoutGuide type="bottom" id="uwA-SS-bcG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oef-9t-TCK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hc-uc-O38">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Family" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSp-3h-a0U">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="58" id="XZi-Hu-vQa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delfault" translatesAutoresizingMaskIntoConstraints="NO" id="VQg-Bf-aK1">
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="ckU-zZ-n6I"/>
+                                    <constraint firstAttribute="width" constant="250" id="gyI-Vv-BEf"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="98X-Ts-rve" appends="YES" id="cbC-dh-XF2"/>
+                                </connections>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cgS-0v-mlq">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9Tl-Zu-cni">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lSp-3h-a0U" firstAttribute="centerY" secondItem="9Tl-Zu-cni" secondAttribute="centerY" id="275-tA-mCK"/>
+                            <constraint firstItem="4hc-uc-O38" firstAttribute="centerY" secondItem="cgS-0v-mlq" secondAttribute="centerY" id="5bV-Fq-TfZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cgS-0v-mlq" secondAttribute="trailing" constant="35" id="7fE-yf-ex1"/>
+                            <constraint firstItem="cgS-0v-mlq" firstAttribute="leading" secondItem="4hc-uc-O38" secondAttribute="trailing" constant="8" symbolic="YES" id="87p-s2-GRc"/>
+                            <constraint firstItem="4hc-uc-O38" firstAttribute="leading" secondItem="oef-9t-TCK" secondAttribute="leadingMargin" constant="21" id="DLU-TV-bdI"/>
+                            <constraint firstItem="cgS-0v-mlq" firstAttribute="top" secondItem="3IJ-zN-fPE" secondAttribute="bottom" constant="52" id="ccp-NO-khL"/>
+                            <constraint firstItem="VQg-Bf-aK1" firstAttribute="top" secondItem="9Tl-Zu-cni" secondAttribute="bottom" constant="38" id="fpx-Tu-MRj"/>
+                            <constraint firstItem="9Tl-Zu-cni" firstAttribute="top" secondItem="cgS-0v-mlq" secondAttribute="bottom" constant="22" id="sph-vQ-v4o"/>
+                            <constraint firstItem="4hc-uc-O38" firstAttribute="leading" secondItem="lSp-3h-a0U" secondAttribute="leading" id="svw-lu-4ei"/>
+                            <constraint firstItem="VQg-Bf-aK1" firstAttribute="centerX" secondItem="oef-9t-TCK" secondAttribute="centerX" id="tEI-wM-Riy"/>
+                            <constraint firstItem="cgS-0v-mlq" firstAttribute="trailing" secondItem="9Tl-Zu-cni" secondAttribute="trailing" id="wfT-n0-zJi"/>
+                            <constraint firstItem="cgS-0v-mlq" firstAttribute="leading" secondItem="9Tl-Zu-cni" secondAttribute="leading" id="yXq-VT-g5I"/>
+                            <constraint firstItem="9Tl-Zu-cni" firstAttribute="leading" secondItem="oef-9t-TCK" secondAttribute="leadingMargin" constant="77" id="zdG-r2-Xir"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Pet" id="Sio-dL-io9">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="8vo-Di-H4S">
@@ -320,12 +374,26 @@
                                 <action selector="close:" destination="CSu-gi-cG1" id="327-qa-Eqn"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="bFh-jo-RtZ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="bFh-jo-RtZ">
+                            <connections>
+                                <action selector="savePet:" destination="CSu-gi-cG1" id="NO8-d6-f0D"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="petFamilyNameTextFiled" destination="9Tl-Zu-cni" id="d2U-zC-bnr"/>
+                        <outlet property="petImageView" destination="VQg-Bf-aK1" id="fUd-Lz-oQd"/>
+                        <outlet property="petNameTextFiled" destination="cgS-0v-mlq" id="5Y3-25-IwB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9RA-Jk-iuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="98X-Ts-rve">
+                    <connections>
+                        <action selector="selectPhotoFromLibrary:" destination="CSu-gi-cG1" id="Vgw-gq-TqS"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="5762.3999999999996" y="1545.8770614692655"/>
+            <point key="canvasLocation" x="5761.875" y="1545.4225352112676"/>
         </scene>
         <!--Pets-->
         <scene sceneID="up4-5j-oQy">
@@ -402,4 +470,7 @@
             <point key="canvasLocation" x="4578.75" y="2453.8732394366198"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="delfault" width="320" height="320"/>
+    </resources>
 </document>
