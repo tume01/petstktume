@@ -96,6 +96,19 @@ class PetTableViewController: UITableViewController {
         return cell
     }
     
+    
+    @IBAction func unwindToPetList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? PetViewController {
+            let pet = sourceViewController.newPet
+            
+            self.pets.append(pet!)
+            
+            let newIndexPath = IndexPath(row: self.pets.count, section: 0)
+                
+            self.tableView.insertRows(at: [newIndexPath], with: .bottom)
+            
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

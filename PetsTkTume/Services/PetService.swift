@@ -70,31 +70,16 @@ class PetService {
         let parameters = [
                 "name": petName,
                 "family": petFamilyName,
-                "user_id": userId,
-                "image": petImage
+                "user_id": userId.description
         ] as [String : Any]
-        
-        let bodyData: Data = NSKeyedArchiver.archivedData(withRootObject: parameters)
-        
-        /*let request = RequestBuilder().makeRequest(with: body, path: "pets.json", token: "", method: HTTPMethods.post)
-        
-        NetworkManager.sharedInstance().dataTask(with: request) {
-            networkResult in
-            switch networkResult {
-            case .success(let result):
-                guard let pet = Pet(json: result as! [String : Any]) else{
-                    return completionHandler(NetworkResult.error(error: PetError.parseError))
-                }
-                completionHandler(NetworkResult.success(result: pet))
-                
-            case .error:
-                completionHandler(networkResult)
-            }
-        }.resume()*/
         
         Alamofire.upload(
             multipartFormData: { multipartFormData in
-                multipartFormData.append(bodyData, withName: "pet")
+                multipartFormData.append((parameters["name"] as! String).data(using: .utf8, allowLossyConversion: false)!, withName: "pet[name]")
+                multipartFormData.append((parameters["family"] as! String).data(using: .utf8, allowLossyConversion: false)!, withName: "pet[family]")
+                multipartFormData.append((parameters["user_id"] as! String).data(using: .utf8, allowLossyConversion: false)!, withName: "pet[user_id]")
+                multipartFormData.append(petImage, withName: "pet[image]", fileName: "test.jpg", mimeType: "image/jpeg")
+
             },
             to: "http://development.tektonlabs.com/pets-tk-app/pets.json",
             encodingCompletion: { encodingResult in
@@ -103,9 +88,7 @@ class PetService {
                 case .success(let upload, _, _):
                     
                     upload.responseJSON { response in
-                        let test = String(data: (response.request?.httpBody!)! , encoding: String.Encoding(rawValue: UInt(String.Encoding.utf8.hashValue)))
-                        print(test)
-                        guard let pet = Pet(json: response.result.value as! [String : Any]) else{
+                        guard let pet = Pet(json: (response.result.value as? [String : Any])!) else{
                             return completionHandler(NetworkResult.error(error: PetError.parseError))
                         }
                         completionHandler(NetworkResult.success(result: pet))

@@ -31,7 +31,7 @@
         <scene sceneID="Etw-u1-E1X">
             <objects>
                 <collectionViewController id="OC9-Ho-Yhv" customClass="ProfileCollectionViewController" customModule="PetsTkTume" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="QX2-It-L3Q">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="QX2-It-L3Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,10 +43,10 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCollectionViewCell" id="MU3-I6-U4M" customClass="ProfileCollectionViewCell" customModule="PetsTkTume" customModuleProvider="target">
-                                <rect key="frame" x="28" y="0.0" width="320" height="179"/>
+                                <rect key="frame" x="27.5" y="0.0" width="320" height="179"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="179"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="321" height="179"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNu-fn-Osm">
@@ -244,7 +244,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LnO-RD-mFE" id="NBd-2o-7Tw">
-                                    <frame key="frameInset" width="375" height="99"/>
+                                    <frame key="frameInset" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dZ-OG-7F1">
@@ -376,7 +376,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="bFh-jo-RtZ">
                             <connections>
-                                <action selector="savePet:" destination="CSu-gi-cG1" id="NO8-d6-f0D"/>
+                                <segue destination="SqY-tX-mdO" kind="unwind" unwindAction="unwindToPetListWithSender:" id="rdE-Z9-kPa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -384,9 +384,11 @@
                         <outlet property="petFamilyNameTextFiled" destination="9Tl-Zu-cni" id="d2U-zC-bnr"/>
                         <outlet property="petImageView" destination="VQg-Bf-aK1" id="fUd-Lz-oQd"/>
                         <outlet property="petNameTextFiled" destination="cgS-0v-mlq" id="5Y3-25-IwB"/>
+                        <outlet property="saveButton" destination="bFh-jo-RtZ" id="TJl-v6-Lsr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9RA-Jk-iuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="SqY-tX-mdO" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="98X-Ts-rve">
                     <connections>
                         <action selector="selectPhotoFromLibrary:" destination="CSu-gi-cG1" id="Vgw-gq-TqS"/>
