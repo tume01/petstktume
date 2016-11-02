@@ -31,7 +31,7 @@
         <scene sceneID="Etw-u1-E1X">
             <objects>
                 <collectionViewController id="OC9-Ho-Yhv" customClass="ProfileCollectionViewController" customModule="PetsTkTume" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="QX2-It-L3Q">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="QX2-It-L3Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -46,7 +46,7 @@
                                 <rect key="frame" x="27.5" y="0.0" width="320" height="179"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="321" height="179"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="179"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNu-fn-Osm">
@@ -140,7 +140,7 @@
                     <navigationItem key="navigationItem" id="d43-7J-026">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="fEd-cb-ePF">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZpN-9s-cxN">
-                                <rect key="frame" x="274" y="7" width="30" height="30"/>
+                                <rect key="frame" x="329" y="7" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Edit"/>
                                 <connections>
@@ -220,10 +220,21 @@
                                 <action selector="close:" destination="aMg-DS-g7I" id="rf1-3Y-ezK"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="f0U-TP-f7A"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="f0U-TP-f7A">
+                            <connections>
+                                <action selector="saveProfile:" destination="aMg-DS-g7I" id="0kx-P0-5wl"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="lastName" destination="i3i-WN-TLo" id="q1R-Xd-Juw"/>
+                        <outlet property="userEmail" destination="uRL-Ga-yXj" id="gCy-fA-GmM"/>
+                        <outlet property="userName" destination="fYD-Dp-M8V" id="dfh-6z-Vn4"/>
+                        <segue destination="pF5-9W-cfj" kind="unwind" identifier="unwindToProfile" unwindAction="unwindToProfileWithSender:" id="liD-8k-1f0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="goL-kJ-ONH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pF5-9W-cfj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5576.25" y="2453.8732394366198"/>
         </scene>
@@ -376,7 +387,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="bFh-jo-RtZ">
                             <connections>
-                                <segue destination="SqY-tX-mdO" kind="unwind" unwindAction="unwindToPetListWithSender:" id="rdE-Z9-kPa"/>
+                                <action selector="save:" destination="CSu-gi-cG1" id="7wE-Z9-02Z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -385,6 +396,7 @@
                         <outlet property="petImageView" destination="VQg-Bf-aK1" id="fUd-Lz-oQd"/>
                         <outlet property="petNameTextFiled" destination="cgS-0v-mlq" id="5Y3-25-IwB"/>
                         <outlet property="saveButton" destination="bFh-jo-RtZ" id="TJl-v6-Lsr"/>
+                        <segue destination="SqY-tX-mdO" kind="unwind" identifier="unwindSegue" unwindAction="unwindToPetListWithSender:" id="yKC-FN-Z06"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9RA-Jk-iuL" userLabel="First Responder" sceneMemberID="firstResponder"/>

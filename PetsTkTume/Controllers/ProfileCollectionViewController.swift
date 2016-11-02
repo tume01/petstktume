@@ -110,8 +110,8 @@ class ProfileCollectionViewController: UICollectionViewController {
             
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: profileCellIdentifier, for: indexPath) as! ProfileCollectionViewCell
             
-            cell.nameText.text = sectionCell.firstName
-            cell.emailText.text = sectionCell.email
+            cell.nameText.text = SessionManager.sharedInstance().user?.firstName
+            cell.emailText.text = SessionManager.sharedInstance().user?.email
            
             return cell
             
@@ -165,6 +165,20 @@ class ProfileCollectionViewController: UICollectionViewController {
             self.overlayView.alpha = 1.0
             self.overlayView.transform = CGAffineTransform.identity
         }) { (finished) -> Void in
+            
+        }
+    }
+    
+    @IBAction func unwindToProfile(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? EditProfileFormViewController {
+            let user = sourceViewController.user
+            
+            let newIndexPath = IndexPath(row: 0, section: 0)
+            
+            let cell = self.collectionView?.cellForItem(at: newIndexPath) as! ProfileCollectionViewCell
+            
+            cell.emailText.text = user?.email
+            cell.nameText.text = user?.firstName
             
         }
     }

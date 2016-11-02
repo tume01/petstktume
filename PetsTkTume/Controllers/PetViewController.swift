@@ -33,45 +33,7 @@ class PetViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if sender as! UIBarButtonItem === saveButton {
-            let userId = SessionManager.sharedInstance().user?.userID
-            let petName = petNameTextFiled.text!
-            let petFamilyName = petFamilyNameTextFiled.text!
-            let petImage = UIImagePNGRepresentation(petImageView.image!)
-            
-            activityIndicator.hidesWhenStopped = true
-            activityIndicator.activityIndicatorViewStyle  = UIActivityIndicatorViewStyle.gray
-            activityIndicator.center = view.center
-            activityIndicator.startAnimating()
-            (sender as! UIBarButtonItem).customView = activityIndicator
-            
-            
-            PetService.sharedInstance().createPet(userId: userId!, petName: petName, petFamilyName: petFamilyName, petImage: petImage!) {
-                networkResult in
-                
-                DispatchQueue.main.async {
-                    switch networkResult {
-                    case .success(let result):
-                        self.newPet = result as? Pet
-                        
-                    case .error:
-                        let alertController = UIAlertController(title: "Service Error", message: "Service Error", preferredStyle: .alert)
-                        
-                        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-                            print("you have pressed OK button");
-                        }
-                        alertController.addAction(OKAction)
-                        
-                        self.present(alertController, animated: true, completion: nil)
-                    }
-                    self.activityIndicator.stopAnimating()
-                    (sender as! UIBarButtonItem).customView = nil
-                }
-            }
-        }
-    }
+
     
     @IBAction func close(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -87,6 +49,42 @@ class PetViewController: UIViewController {
         present(imagePickerController, animated: true, completion: nil)
     }
 
+    @IBAction func save(_ sender: AnyObject) {
+        let userId = SessionManager.sharedInstance().user?.userID
+        let petName = petNameTextFiled.text!
+        let petFamilyName = petFamilyNameTextFiled.text!
+        let petImage = UIImagePNGRepresentation(petImageView.image!)
+        
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle  = UIActivityIndicatorViewStyle.gray
+        activityIndicator.center = view.center
+        activityIndicator.startAnimating()
+        (sender as! UIBarButtonItem).customView = activityIndicator
+        
+        
+        PetService.sharedInstance().createPet(userId: userId!, petName: petName, petFamilyName: petFamilyName, petImage: petImage!) {
+            networkResult in
+            
+            DispatchQueue.main.async {
+                switch networkResult {
+                case .success(let result):
+                    self.newPet = result as? Pet
+                    self.performSegue(withIdentifier: "unwindSegue", sender: nil)
+                case .error:
+                    let alertController = UIAlertController(title: "Service Error", message: "Service Error", preferredStyle: .alert)
+                    
+                    let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                        print("you have pressed OK button");
+                    }
+                    alertController.addAction(OKAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }
+                self.activityIndicator.stopAnimating()
+                (sender as! UIBarButtonItem).customView = nil
+            }
+        }
+    }
 }
 
 extension PetViewController: UITextFieldDelegate {

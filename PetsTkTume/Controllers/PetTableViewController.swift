@@ -92,6 +92,7 @@ class PetTableViewController: UITableViewController {
         }
         cell.petName.text = pet.name + ", " + pet.family
         cell.favoriteControl.heartButton?.isSelected = pet.isFavorite!
+        cell.petId = pet.petId
         
         return cell
     }
@@ -103,7 +104,7 @@ class PetTableViewController: UITableViewController {
             
             self.pets.append(pet!)
             
-            let newIndexPath = IndexPath(row: self.pets.count, section: 0)
+            let newIndexPath = IndexPath(row: self.pets.count - 1, section: 0)
                 
             self.tableView.insertRows(at: [newIndexPath], with: .bottom)
             

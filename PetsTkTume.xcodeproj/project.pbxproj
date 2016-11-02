@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		753868391DCA33A20066A507 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753868381DCA33A20066A507 /* ProfileService.swift */; };
 		753DB1051DB14DEF00B62303 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DB1041DB14DEF00B62303 /* NetworkResult.swift */; };
 		753DB1081DB1673000B62303 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DB1071DB1673000B62303 /* SessionService.swift */; };
 		753DB10D1DB17DD800B62303 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DB10C1DB17DD800B62303 /* SessionManager.swift */; };
@@ -43,6 +44,7 @@
 		4971A1655BEC76E9827ADA7C /* Pods-PetsTkTume.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetsTkTume.release.xcconfig"; path = "Pods/Target Support Files/Pods-PetsTkTume/Pods-PetsTkTume.release.xcconfig"; sourceTree = "<group>"; };
 		6DFB9A6BCE922D741F4B9242 /* Pods-PetsTkTume.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetsTkTume.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PetsTkTume/Pods-PetsTkTume.debug.xcconfig"; sourceTree = "<group>"; };
 		7350FD381F6FDC3B58E883A3 /* Pods_PetsTkTume.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetsTkTume.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		753868381DCA33A20066A507 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		753DB1041DB14DEF00B62303 /* NetworkResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		753DB1071DB1673000B62303 /* SessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
 		753DB10C1DB17DD800B62303 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				753DB1071DB1673000B62303 /* SessionService.swift */,
 				759B49DD1DB92E5F0099875C /* PetService.swift */,
+				753868381DCA33A20066A507 /* ProfileService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				753DB10D1DB17DD800B62303 /* SessionManager.swift in Sources */,
 				754DABEC1DB025B2006B0C1C /* JSONParser.swift in Sources */,
 				758010D61DBFF6FC00EFF19C /* EditProfileFormViewController.swift in Sources */,
+				753868391DCA33A20066A507 /* ProfileService.swift in Sources */,
 				755A22641DB53488002B0471 /* PetTableViewCell.swift in Sources */,
 				753DB1051DB14DEF00B62303 /* NetworkResult.swift in Sources */,
 				756E1E121DBA9A8A00757E06 /* FavoritePetCollectionViewCell.swift in Sources */,

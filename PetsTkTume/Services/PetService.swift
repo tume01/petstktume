@@ -101,6 +101,40 @@ class PetService {
 
     }
     
+    func setFavoritePet(userId: Int, petId: Int, isFavorite: Bool, completionHandler: @escaping(_ result: NetworkResult<Any>) -> Void) {
+        
+        let path: String
+        let method: HTTPMethods
+        
+        if (isFavorite) {
+            path = "pets/\(petId)/add_favorite.json"
+            method = HTTPMethods.post
+            
+        }else {
+            path = "pets/\(petId)/remove_favorite.json"
+            method = HTTPMethods.delete
+        }
+        
+        let request = RequestBuilder().makeRequest(with: ["user_id": userId], path: path, token: (SessionManager.sharedInstance().user?.token)!, method: method)
+        
+        let task = NetworkManager.sharedInstance().dataTask(with: request) {
+            networkResult in
+            
+            switch networkResult {
+            case .success(let result):
+                guard let pet = Pet(json: (result as? [String : Any])!) else{
+                    return completionHandler(NetworkResult.error(error: PetError.parseError))
+                }
+                
+                completionHandler(NetworkResult.success(result: pet))
+            case .error:
+                completionHandler(networkResult)
+            }
+        }
+        
+        task.resume()
+    }
+    
     class func sharedInstance() -> PetService {
         struct Singleton {
             static var sharedInstance = PetService()

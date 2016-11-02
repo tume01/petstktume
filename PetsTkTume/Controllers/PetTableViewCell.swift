@@ -12,6 +12,7 @@ class PetTableViewCell: UITableViewCell {
 
     @IBOutlet weak var petName: UILabel!
     @IBOutlet weak var petImage: UIImageView!
+    var petId: Int?
     @IBOutlet weak var favoriteControl: FavoriteControl! {
         didSet {
             let iconNo = #imageLiteral(resourceName: "heart-no")
@@ -35,10 +36,7 @@ class PetTableViewCell: UITableViewCell {
     
     
     override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        print("inicell")
-        
+        super.awakeFromNib()        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -48,21 +46,28 @@ class PetTableViewCell: UITableViewCell {
     }
     
     func setFavorite(sender: UITapGestureRecognizer) {
-        if (self.favoriteControl.heartButton?.isSelected)! {
-            self.favoriteControl.heartButton?.isSelected = false
-        }else {
-            UIView.animate(withDuration: 0.1 ,
-                           animations: {
-                            self.favoriteControl.heartButton?.transform = CGAffineTransform(scaleX: 0, y: 0)
-                },
-                           completion: { finish in
-                            UIView.animate(withDuration: 0.2){
-                                self.favoriteControl.heartButton?.isSelected = true
-                                self.favoriteControl.heartButton?.transform = CGAffineTransform.identity
-                            }
-            })
+        let state = !self.favoriteControl.heartButton!.isSelected
+        
+        PetService.sharedInstance().setFavoritePet(userId: (SessionManager.sharedInstance().user?.userID)!, petId: self.petId!, isFavorite: state) {
+            networkResult in
+            DispatchQueue.main.async {
+                switch networkResult {
+                case .success:
+                    self.favoriteControl.animateHeart(state: state)
+                case .error:
+                    let alertController = UIAlertController(title: "Wrong Credentials", message: "Wrong Credentials", preferredStyle: .alert)
+                    
+                    let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                        print("you have pressed OK button");
+                    }
+                    alertController.addAction(OKAction)
+                    
+                    //self.present(alertController, animated: true, completion: nil)
+                }
+            }
         }
     }
+    
     
     override func prepareForReuse() {
         super.prepareForReuse()
