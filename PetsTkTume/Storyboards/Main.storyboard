@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="1713" y="2053"/>
         </scene>
-        <!--Profile Collection View Controller-->
+        <!--My Account-->
         <scene sceneID="Etw-u1-E1X">
             <objects>
                 <collectionViewController id="OC9-Ho-Yhv" customClass="ProfileCollectionViewController" customModule="PetsTkTume" customModuleProvider="target" sceneMemberID="viewController">
@@ -43,7 +43,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCollectionViewCell" id="MU3-I6-U4M" customClass="ProfileCollectionViewCell" customModule="PetsTkTume" customModuleProvider="target">
-                                <rect key="frame" x="27.5" y="0.0" width="320" height="179"/>
+                                <rect key="frame" x="28" y="0.0" width="320" height="179"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="179"/>
@@ -57,7 +57,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uey-Bc-3uY">
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="90" id="F7w-PK-Hcv"/>
-                                                <constraint firstAttribute="height" constant="65" id="QRX-D0-vIx"/>
+                                                <constraint firstAttribute="height" constant="90" id="QRX-D0-vIx"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruq-rx-vB6">
@@ -68,9 +68,9 @@
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="gNu-fn-Osm" firstAttribute="top" secondItem="MU3-I6-U4M" secondAttribute="topMargin" constant="97" id="19c-1R-s1L"/>
+                                    <constraint firstItem="gNu-fn-Osm" firstAttribute="top" secondItem="MU3-I6-U4M" secondAttribute="topMargin" constant="110" id="19c-1R-s1L"/>
                                     <constraint firstItem="Uey-Bc-3uY" firstAttribute="centerX" secondItem="MU3-I6-U4M" secondAttribute="centerX" id="3QN-3K-7qU"/>
-                                    <constraint firstItem="Uey-Bc-3uY" firstAttribute="top" secondItem="MU3-I6-U4M" secondAttribute="topMargin" constant="16" id="9rm-4K-Zbx"/>
+                                    <constraint firstItem="Uey-Bc-3uY" firstAttribute="top" secondItem="MU3-I6-U4M" secondAttribute="topMargin" constant="5" id="9rm-4K-Zbx"/>
                                     <constraint firstItem="gNu-fn-Osm" firstAttribute="centerX" secondItem="MU3-I6-U4M" secondAttribute="centerX" id="oIe-4x-riB"/>
                                     <constraint firstItem="Ruq-rx-vB6" firstAttribute="centerX" secondItem="MU3-I6-U4M" secondAttribute="centerX" id="p2i-f7-owk"/>
                                     <constraint firstItem="Ruq-rx-vB6" firstAttribute="top" secondItem="gNu-fn-Osm" secondAttribute="bottom" constant="5" id="ws4-SU-lcg"/>
@@ -137,7 +137,7 @@
                             <outlet property="delegate" destination="OC9-Ho-Yhv" id="fvC-v4-U27"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="d43-7J-026">
+                    <navigationItem key="navigationItem" title="My Account" id="d43-7J-026">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="fEd-cb-ePF">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZpN-9s-cxN">
                                 <rect key="frame" x="329" y="7" width="30" height="30"/>
@@ -255,7 +255,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LnO-RD-mFE" id="NBd-2o-7Tw">
-                                    <frame key="frameInset" width="375" height="100"/>
+                                    <frame key="frameInset" width="375" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dZ-OG-7F1">

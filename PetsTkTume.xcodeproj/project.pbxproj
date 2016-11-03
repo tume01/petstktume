@@ -11,6 +11,9 @@
 		753DB1051DB14DEF00B62303 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DB1041DB14DEF00B62303 /* NetworkResult.swift */; };
 		753DB1081DB1673000B62303 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DB1071DB1673000B62303 /* SessionService.swift */; };
 		753DB10D1DB17DD800B62303 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DB10C1DB17DD800B62303 /* SessionManager.swift */; };
+		753DF6831DCB8D5A00616D46 /* InformationLanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF6821DCB8D5A00616D46 /* InformationLanding.swift */; };
+		753DF6851DCB9B4F00616D46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 753DF6841DCB9B4F00616D46 /* Assets.xcassets */; };
+		753DF6871DCBA30300616D46 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF6861DCBA30300616D46 /* LandingViewController.swift */; };
 		754DABEB1DB025B2006B0C1C /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754DABE61DB025B2006B0C1C /* ErrorCode.swift */; };
 		754DABEC1DB025B2006B0C1C /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754DABE71DB025B2006B0C1C /* JSONParser.swift */; };
 		754DABEE1DB025B2006B0C1C /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754DABE91DB025B2006B0C1C /* RequestBuilder.swift */; };
@@ -32,9 +35,9 @@
 		759B49E21DB95AB80099875C /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B49E11DB95AB80099875C /* PetViewController.swift */; };
 		759B984A1DAD345900061B9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B98491DAD345900061B9B /* AppDelegate.swift */; };
 		759B984F1DAD345900061B9B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759B984D1DAD345900061B9B /* Login.storyboard */; };
-		759B98511DAD345900061B9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 759B98501DAD345900061B9B /* Assets.xcassets */; };
 		759B98541DAD345900061B9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759B98521DAD345900061B9B /* LaunchScreen.storyboard */; };
 		759B98651DAD3A9500061B9B /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B98641DAD3A9500061B9B /* LandingPageViewController.swift */; };
+		75C8641E1DCBCAB800F94127 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C8641D1DCBCAB800F94127 /* CustomButton.swift */; };
 		75D8D6F61DAE99E70039C98E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8D6F51DAE99E70039C98E /* LoginViewController.swift */; };
 		75D8D6F81DAE99FA0039C98E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8D6F71DAE99FA0039C98E /* SignUpViewController.swift */; };
 		F077B71494F5AFD4BF7C52B8 /* Pods_PetsTkTume.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7350FD381F6FDC3B58E883A3 /* Pods_PetsTkTume.framework */; };
@@ -48,6 +51,9 @@
 		753DB1041DB14DEF00B62303 /* NetworkResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		753DB1071DB1673000B62303 /* SessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
 		753DB10C1DB17DD800B62303 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		753DF6821DCB8D5A00616D46 /* InformationLanding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationLanding.swift; sourceTree = "<group>"; };
+		753DF6841DCB9B4F00616D46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		753DF6861DCBA30300616D46 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		754DABE61DB025B2006B0C1C /* ErrorCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCode.swift; sourceTree = "<group>"; };
 		754DABE71DB025B2006B0C1C /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		754DABE91DB025B2006B0C1C /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
@@ -70,10 +76,10 @@
 		759B98461DAD345900061B9B /* PetsTkTume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetsTkTume.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759B98491DAD345900061B9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		759B984E1DAD345900061B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
-		759B98501DAD345900061B9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		759B98531DAD345900061B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		759B98551DAD345900061B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		759B98641DAD3A9500061B9B /* LandingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LandingPageViewController.swift; path = ../Views/LandingPageViewController.swift; sourceTree = "<group>"; };
+		75C8641D1DCBCAB800F94127 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		75D8D6F51DAE99E70039C98E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		75D8D6F71DAE99FA0039C98E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +148,7 @@
 		759B98481DAD345900061B9B /* PetsTkTume */ = {
 			isa = PBXGroup;
 			children = (
+				753DF6841DCB9B4F00616D46 /* Assets.xcassets */,
 				753DB10B1DB17DCA00B62303 /* Managers */,
 				753DB1061DB1671D00B62303 /* Services */,
 				754DABE41DB0237F006B0C1C /* Networking */,
@@ -151,7 +158,6 @@
 				759B985F1DAD374400061B9B /* Models */,
 				759B985E1DAD372C00061B9B /* Storyboards */,
 				759B98491DAD345900061B9B /* AppDelegate.swift */,
-				759B98501DAD345900061B9B /* Assets.xcassets */,
 				759B98551DAD345900061B9B /* Info.plist */,
 			);
 			path = PetsTkTume;
@@ -184,6 +190,8 @@
 				756E1E0F1DBA9A7D00757E06 /* ProfileCollectionViewCell.swift */,
 				756E1E111DBA9A8A00757E06 /* FavoritePetCollectionViewCell.swift */,
 				758010CE1DBFAF1900EFF19C /* OverlayView.swift */,
+				753DF6821DCB8D5A00616D46 /* InformationLanding.swift */,
+				75C8641D1DCBCAB800F94127 /* CustomButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,6 +214,7 @@
 				759B49E11DB95AB80099875C /* PetViewController.swift */,
 				756E1E0D1DBA98A700757E06 /* ProfileCollectionViewController.swift */,
 				758010D51DBFF6FC00EFF19C /* EditProfileFormViewController.swift */,
+				753DF6861DCBA30300616D46 /* LandingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -292,9 +301,9 @@
 			files = (
 				759B98541DAD345900061B9B /* LaunchScreen.storyboard in Resources */,
 				758010D41DBFF34200EFF19C /* Main.storyboard in Resources */,
-				759B98511DAD345900061B9B /* Assets.xcassets in Resources */,
 				758010CD1DBFAEB500EFF19C /* OverlayView.xib in Resources */,
 				759B984F1DAD345900061B9B /* Login.storyboard in Resources */,
+				753DF6851DCB9B4F00616D46 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,8 +366,10 @@
 				755A22621DB52012002B0471 /* User.swift in Sources */,
 				755A22681DB537D4002B0471 /* FavoriteControl.swift in Sources */,
 				75D8D6F61DAE99E70039C98E /* LoginViewController.swift in Sources */,
+				75C8641E1DCBCAB800F94127 /* CustomButton.swift in Sources */,
 				759B49DE1DB92E5F0099875C /* PetService.swift in Sources */,
 				759B984A1DAD345900061B9B /* AppDelegate.swift in Sources */,
+				753DF6831DCB8D5A00616D46 /* InformationLanding.swift in Sources */,
 				753DB10D1DB17DD800B62303 /* SessionManager.swift in Sources */,
 				754DABEC1DB025B2006B0C1C /* JSONParser.swift in Sources */,
 				758010D61DBFF6FC00EFF19C /* EditProfileFormViewController.swift in Sources */,
@@ -368,6 +379,7 @@
 				756E1E121DBA9A8A00757E06 /* FavoritePetCollectionViewCell.swift in Sources */,
 				756E1E101DBA9A7D00757E06 /* ProfileCollectionViewCell.swift in Sources */,
 				754DABEE1DB025B2006B0C1C /* RequestBuilder.swift in Sources */,
+				753DF6871DCBA30300616D46 /* LandingViewController.swift in Sources */,
 				755A22661DB534A1002B0471 /* PetTableViewController.swift in Sources */,
 				75D8D6F81DAE99FA0039C98E /* SignUpViewController.swift in Sources */,
 				753DB1081DB1673000B62303 /* SessionService.swift in Sources */,

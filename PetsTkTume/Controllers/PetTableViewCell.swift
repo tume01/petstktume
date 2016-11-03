@@ -71,7 +71,6 @@ class PetTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
         petImage.image = nil
     }
 

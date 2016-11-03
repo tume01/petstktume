@@ -105,14 +105,14 @@ class ProfileCollectionViewController: UICollectionViewController {
         
         
         switch section.cells[indexPath.row] {
-        case .profile(let sectionCell):
+        case .profile(let _):
             var cell: ProfileCollectionViewCell
             
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: profileCellIdentifier, for: indexPath) as! ProfileCollectionViewCell
             
-            cell.nameText.text = SessionManager.sharedInstance().user?.firstName
-            cell.emailText.text = SessionManager.sharedInstance().user?.email
+            let user = SessionManager.sharedInstance().user!
            
+            cell.setCellLayout(profileName: user.firstName, email: user.email, profileImage: #imageLiteral(resourceName: "delfault"))
             return cell
             
         case .favoritePet(let sectionCell):
@@ -224,7 +224,7 @@ extension ProfileCollectionViewController: UICollectionViewDelegateFlowLayout {
         
         switch section.cells[indexPath.row] {
         case .profile:
-            return CGSize(width: collectionView.frame.size.width, height: 250)
+            return CGSize(width: collectionView.frame.size.width, height: 200)
         case .favoritePet:
             return CGSize(width: (collectionView.frame.size.width / 2) - 10, height: 300)
         }

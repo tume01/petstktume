@@ -10,6 +10,8 @@ import UIKit
 
 class LandingPageViewController: UIPageViewController {
     
+    weak var landingDelegate: LandingPageViewControllerDelegate?
+    
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [self.newViewController(identifier: "Login"),
                 self.newViewController(identifier: "ProfileFeature"),
@@ -24,8 +26,6 @@ class LandingPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor .red
-        
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController],
                                direction: .forward,
@@ -34,6 +34,9 @@ class LandingPageViewController: UIPageViewController {
         }
         
         dataSource = self
+        delegate = self
+        landingDelegate?.landingPageViewController(self,
+                                                     didUpdatePageCount: orderedViewControllers.count)
         
         // Do any additional setup after loading the view.
     }
@@ -96,17 +99,37 @@ extension LandingPageViewController: UIPageViewControllerDataSource {
         
         return orderedViewControllers[nextIndex]
     }
-    
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return orderedViewControllers.count
-    }
-    
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        guard let firstViewController = viewControllers?.first,
-            let firstViewControllerIndex = orderedViewControllers.index(of: firstViewController) else {
-                return 0
-        }
+}
 
-        return firstViewControllerIndex
+
+extension LandingPageViewController: UIPageViewControllerDelegate {
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if let firstViewController = viewControllers?.first,
+            let index = orderedViewControllers.index(of: firstViewController) {
+            landingDelegate?.landingPageViewController(self,
+                                                         didUpdatePageIndex: index)
+        }
     }
+    
+}
+
+protocol LandingPageViewControllerDelegate: class {
+    /**
+     Called when the number of pages is updated.
+     
+     - parameter tutorialPageViewController: the TutorialPageViewController instance
+     - parameter count: the total number of pages.
+     */
+    func landingPageViewController(_ landingPageViewController: LandingPageViewController,
+                                    didUpdatePageCount count: Int)
+    
+    /**
+     Called when the current index is updated.
+     
+     - parameter tutorialPageViewController: the TutorialPageViewController instance
+     - parameter index: the index of the currently visible page.
+     */
+    func landingPageViewController(_ landingPageViewController: LandingPageViewController,
+                                    didUpdatePageIndex index: Int)
 }
